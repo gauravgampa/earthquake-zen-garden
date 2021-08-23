@@ -20,8 +20,8 @@ module.exports = {
     extensions: [".jsx", ".js", ".css", ".sass", ".scss"],
     alias: {
       components: path.resolve(__dirname, "src/components"),
-      layout: path.resolve(__dirname, "src/templates"),
-      pages: path.resolve(__dirname, "src/templates"),
+      pages: path.resolve(__dirname, "src/pages"),
+      styles: path.resolve(__dirname, "src/styles"),
     },
   },
   module: {
