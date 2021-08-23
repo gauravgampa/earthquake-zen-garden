@@ -1,0 +1,15 @@
+@use "styles/colors" as colors;
+@import "styles/flex";
+
+.nav-bar {
+  @extend .flex-row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: colors.$light-grey;
+  padding: 0 10px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}

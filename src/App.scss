@@ -1,3 +1,16 @@
-h1 {
-  color: red;
+@import "styles/flex";
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0px;
+}
+
+.content {
+  @extend .flex-column;
+  align-items: center;
+  margin: 3%;
+  height: 100vh;
 }
