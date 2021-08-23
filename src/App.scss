@@ -8,6 +8,10 @@ body {
   margin: 0px;
 }
 
+table {
+  border-spacing: 10px;
+}
+
 .content {
   @extend .flex-column;
   align-items: center;

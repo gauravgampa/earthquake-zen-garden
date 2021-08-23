@@ -1,0 +1,6 @@
+@import "styles/flex";
+
+.home-page {
+  @extend .flex-column;
+  align-items: center;
+}
