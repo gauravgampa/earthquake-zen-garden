@@ -15,6 +15,11 @@ module.exports = {
     new MiniCssExtractPlugin(),
   ],
   devtool: "eval-source-map",
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    open: true,
+  },
   resolve: {
     modules: [__dirname, "src", "node_modules"],
     extensions: [".jsx", ".js", ".css", ".sass", ".scss"],
