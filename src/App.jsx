@@ -32,8 +32,8 @@ const App = () => {
                 <Route exact path="/">
                   <Home data={earthquakeData.data} />
                 </Route>
-                <Route path="/detail/:detail_id">
-                  <Detail></Detail>
+                <Route path="/detail/:id">
+                  <Detail data={earthquakeData.data} />
                 </Route>
                 <Route path="/profile">
                   <Profile profile={earthquakeData.profile} />

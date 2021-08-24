@@ -98,7 +98,7 @@ export const getFormattedDate = (date, formatString, dateOptions) => {
   ];
   const optionObj = dateOptions || { clockType: "12-hr" };
   const fmtString = "day month date, year hr:min:sec";
-  const newDate = typeof date === "number" ? getDateFromUnixTime(date) : date;
+  const newDate = typeof date === "number" ? new Date(date) : date;
   if (newDate) {
     const mapObj = {};
     dateOptionKeys.forEach((key) => {
