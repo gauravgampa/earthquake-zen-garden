@@ -1,9 +1,14 @@
+@use "styles/mixins" as screen;
 @import "styles/flex";
 
 .profile-container {
-  @extend .flex-row;
-  max-width: 50%;
+  @extend .flex-column;
+  max-width: 90%;
   justify-content: center;
+  @include screen.tabletUp {
+    flex-direction: row;
+    max-width: 50%;
+  }
 }
 
 .avatar-container {
