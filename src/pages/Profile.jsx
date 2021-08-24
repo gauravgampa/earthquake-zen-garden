@@ -1,10 +1,15 @@
 import "./Profile.scss";
 
+import KeyValuePairs, { KeyValueCellType } from "components/KeyValuePairs";
+
 import React from "react";
-import { convertToSentenceCase } from "utils/text";
 
 const Profile = ({ profile }) => {
   const { avatarImage, ...userDetails } = profile;
+  const requiredHeaders = Object.keys(userDetails).map((key) => ({
+    name: key,
+    type: KeyValueCellType.TEXT,
+  }));
 
   return (
     <>
@@ -17,18 +22,7 @@ const Profile = ({ profile }) => {
             alt={userDetails.firstName}
           />
         </div>
-        <table>
-          <tbody>
-            {Object.entries(userDetails).map(([key, value], index) => {
-              return (
-                <tr key={index}>
-                  <td className="key-cell">{convertToSentenceCase(key)}</td>
-                  <td className="value-cell">{value}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <KeyValuePairs headers={requiredHeaders} content={userDetails} />
       </div>
     </>
   );
