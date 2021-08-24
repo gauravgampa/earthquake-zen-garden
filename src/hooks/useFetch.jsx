@@ -10,26 +10,23 @@ const ACTIONS = {
 
 const fetchDataReducer = (state, action) => {
   switch (action.type) {
-    case ACTIONS.FIELD: {
+    case ACTIONS.FIELD:
       return {
         ...state,
         loading: action.value,
       };
-    }
-    case ACTIONS.SUCCESS: {
+    case ACTIONS.SUCCESS:
       return {
         ...state,
         loading: false,
         data: action.data,
       };
-    }
-    case ACTIONS.ERROR: {
+    case ACTIONS.ERROR:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
-    }
   }
 };
 
