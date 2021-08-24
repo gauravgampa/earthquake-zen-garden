@@ -18,3 +18,8 @@ td {
   margin: 3%;
   height: 100vh;
 }
+
+.status-container {
+  @extend .content;
+  justify-content: center;
+}

@@ -44,19 +44,21 @@ const useFetchData = (url) => {
 
   useEffect(() => {
     dispatch({ type: ACTIONS.FIELD, value: true });
-    const getData = async () => {
-      try {
-        let response = await axios.get(url);
-        dispatch({ type: ACTIONS.SUCCESS, data: response?.data });
-        return;
-      } catch (error) {
-        dispatch({ type: ACTIONS.ERROR, error: error });
-      } finally {
-        dispatch({ type: ACTIONS.FIELD, value: false });
-      }
-    };
+    setTimeout(() => {
+      const getData = async () => {
+        try {
+          let response = await axios.get(url);
+          dispatch({ type: ACTIONS.SUCCESS, data: response?.data });
+          return;
+        } catch (error) {
+          dispatch({ type: ACTIONS.ERROR, error: error });
+        } finally {
+          dispatch({ type: ACTIONS.FIELD, value: false });
+        }
+      };
 
-    getData();
+      getData();
+    }, 1000);
   }, []);
 
   return state;

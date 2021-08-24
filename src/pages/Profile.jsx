@@ -7,7 +7,6 @@ const Profile = ({ profile }) => {
   const { avatarImage, ...userDetails } = profile;
 
   return (
-    // <div className="profile-container">
     <>
       <h2>Profile</h2>
       <div className="profile-container">
@@ -23,16 +22,13 @@ const Profile = ({ profile }) => {
             {Object.entries(userDetails).map(([key, value], index) => {
               return (
                 <tr key={index}>
-                  <td className="key-cell">{`${convertToSentenceCase(
-                    key
-                  )}:`}</td>
+                  <td className="key-cell">{convertToSentenceCase(key)}</td>
                   <td className="value-cell">{value}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        {/* </div> */}
       </div>
     </>
   );

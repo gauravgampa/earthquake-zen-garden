@@ -17,35 +17,36 @@ const App = () => {
     error,
   } = useFetch(`/eartquake-data.json`);
 
-  if (loading) {
-    return <Loading />;
-  } else if (!earthquakeData || error) {
-    return <div>No data found at this time. Come back later.</div>;
-  }
-
-  const { site, profile, data } = earthquakeData;
-
   return (
     <Router>
       <div className="app">
-        <NavBar
-          logoImage={site.logoImage}
-          title={site.title}
-          firstName={profile.firstName}
-        />
-        <main className="content">
-          <Switch>
-            <Route exact path="/">
-              <Home data={data} />
-            </Route>
-            <Route path="/detail/:detail_id">
-              <Detail></Detail>
-            </Route>
-            <Route path="/profile">
-              <Profile profile={profile} />
-            </Route>
-          </Switch>
-        </main>
+        {earthquakeData ? (
+          <>
+            <NavBar
+              logoImage={earthquakeData.site.logoImage}
+              title={earthquakeData.site.title}
+              firstName={earthquakeData.profile.firstName}
+            />
+            <main className="content">
+              <Switch>
+                <Route exact path="/">
+                  <Home data={earthquakeData.data} />
+                </Route>
+                <Route path="/detail/:detail_id">
+                  <Detail></Detail>
+                </Route>
+                <Route path="/profile">
+                  <Profile profile={earthquakeData.profile} />
+                </Route>
+              </Switch>
+            </main>
+          </>
+        ) : (
+          <div className="status-container">
+            {loading && <Loading />}
+            {error && <h3>No data found at this time. Come back later.</h3>}
+          </div>
+        )}
       </div>
     </Router>
   );
